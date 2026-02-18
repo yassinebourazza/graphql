@@ -1,0 +1,23 @@
+//---------- user card ----------//
+
+id
+login
+firstName
+lastName
+email
+campus
+
+//---------- stats card ----------//
+
+current level
+auditRatio
+total project done
+total xp
+
+//---------- projects ----------//
+
+name of projects ==> xp
+
+//---------- graph style ----------//
+
+px stats

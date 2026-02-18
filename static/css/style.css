@@ -1,0 +1,147 @@
+:root {
+    --initial-white: #eee;
+    --initial-black: #000;
+    --initial-gray:  rgba(255, 255, 255, 0.3);
+}
+
+* {
+    
+  font-family: "Lexend Deca", sans-serif;
+  font-optical-sizing: auto;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+body {
+    display: flex;
+    justify-content: center;
+    background-color: var(--initial-black) ;
+    background-size: 100%;
+    overflow: hidden;
+}
+
+#landing-img {
+    position: absolute;
+    width: 90vw;
+    height: 90vh;
+    transform: translateY(800px);
+    filter: blur(5px);
+    opacity: 0;
+    animation:fadeUp 2s ease-out forwards,blurFade 3s infinite;
+}
+
+.glass-card {
+    background: rgba( 255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 50px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--initial-gray) ;
+}
+
+.auth-container {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    flex-direction: column;
+    width: 380px;
+    height: 480px;
+    margin-top: 250px;
+    opacity: 0;
+    border-radius: 45px;
+    padding: 35px; 
+    gap:8px;
+    animation: card 2s ease-out forwards;
+}
+
+.auth-container h1 {
+    color: #eee;
+    font-size: 2.8rem;
+    margin-bottom: auto;
+    margin-top: 20px;
+}
+
+.auth-container h4 {
+    color: var(--initial-gray);
+    font-size: 1rem;
+    font-weight: 300;
+}
+
+.auth-container p {
+    color: rgb(255, 113, 113);
+    min-height: 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.input {
+    width: 100%;
+    height: 3rem;
+    font-size: 1.1rem;
+    margin-top: 15px;
+    text-align: center;
+    color: var(--initial-white);
+    border-radius: 16px;
+     background: rgba( 255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 50px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--initial-gray);
+}
+
+.button-style {
+    all: unset;
+    background-color: rgba(255, 255, 255, 0.5);
+    color: aliceblue;
+    width: 100%;
+    height: 3rem;
+    font-size: 1.1rem;
+    text-align: center;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: 1s;
+    
+}
+
+.button-style:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 0 30px var(--initial-white);
+
+}
+
+@keyframes card {
+    to {
+       display: flex;
+    justify-content: end;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 200px;
+    border-radius: 45px;
+    padding: 35px; 
+    gap:8px;
+    opacity: 1;
+    }
+}
+
+
+@keyframes fadeUp {
+  to {
+    width: 120vw;
+    opacity: 1;
+    transform: translateY(300px);
+  }
+}
+
+@keyframes blurFade {
+  0% {
+    opacity: 0.5;
+    filter: blur(5px);
+  }
+  50% {
+    opacity: 1;
+    filter: blur(2);
+  }
+  100% {
+    opacity: 0.5;
+    filter: blur(5px);
+  }
+}
