@@ -11,13 +11,56 @@ campus
 
 current level
 auditRatio
-total project done
 total xp
 
 //---------- projects ----------//
 
+total project done
 name of projects ==> xp
 
 //---------- graph style ----------//
 
 px stats
+
+
+
+
+
+////////////////// projects //////////////////////////////
+
+progress(where: { eventId: { _eq: 41 } } ) {
+    eventId
+    groupId 
+    
+    createdAt
+    path
+    grade
+    isDone
+    campus
+    group {
+      captainLogin
+      members {
+        user {
+          login
+        }
+      }
+    }
+  }
+
+
+///////////////////////// user //////////////////////////
+
+user {
+    profile
+    login
+    attrs
+    auditRatio
+    campus
+    createdAt
+    totalDown
+    totalUp
+    updatedAt
+  }
+
+
+/////////////////////////////////// stats ///////////////////////

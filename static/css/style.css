@@ -1,7 +1,8 @@
 :root {
     --initial-white: #eee;
     --initial-black: #000;
-    --initial-gray:  rgba(255, 255, 255, 0.3);
+    --initial-gray:  #ffffff4d;
+    --initial-purple:  #6500b8;
 }
 
 * {
@@ -47,8 +48,8 @@ body {
     width: 380px;
     height: 480px;
     margin-top: 250px;
-    opacity: 0;
     border-radius: 45px;
+    opacity: 0;
     padding: 35px; 
     gap:8px;
     animation: card 2s ease-out forwards;
@@ -67,10 +68,10 @@ body {
     font-weight: 300;
 }
 
-.auth-container p {
+#error {
     color: rgb(255, 113, 113);
     min-height: 1rem;
-    font-size: 1rem;
+    font-size: 0.8rem;
     font-weight: 500;
 }
 
@@ -107,6 +108,136 @@ body {
     box-shadow: 0 0 30px var(--initial-white);
 
 }
+
+/*----- home -----*/
+#logout {
+    padding: 10px 0px;
+    font-weight: 500;
+    width: 100px;
+    margin-left:  auto;
+    color: var(--initial-gray);
+    border-radius: 10px;
+    transition: 0.5s;
+}
+
+#logout:hover {
+    color: rgb(255, 93, 93);
+    border: 1px solid rgb(255, 93, 93);
+}
+
+#profile-main {
+    display: grid;
+    flex-direction: column;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    width: 1500px;
+    height: 100vh;
+    padding: 25px;
+    gap: 20px;
+}
+
+.glass-profile {
+    border-radius: 20px;
+    padding: 20px;
+    color: var(--initial-gray);
+}
+
+#user-infos {
+     grid-column: 4/8;
+    grid-row: 1/4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+
+#user-infos div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+#user-infos div p {
+    width: 280px;
+    white-space: nowrap;
+    overflow: hidden; 
+    text-overflow: ellipsis;
+}
+
+#user-avatar {
+    width: 180px;
+    height: 180px;
+    border-radius: 150px;
+    padding: 10px;
+    border: 5px solid var(--initial-gray);
+}
+
+#user-stats {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    justify-content: space-between;
+    align-items: center;
+    grid-column: 1/4;
+    grid-row: 1/4;
+    padding: 0px;
+    gap: 15px;
+}
+#user-stats div {
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    padding: 15px;
+    border-radius: 15px;
+}
+
+#user-stats div p:nth-child(2) {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-top: auto;
+    margin-left: auto;
+}
+
+#user-projects {
+    grid-column: 1/4;
+    grid-row: 4/-1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#user-projects-title {
+    font-size: 1.5rem;
+}
+
+#user-projects #projects-container {
+    height: 92%;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+    scrollbar-width: none;
+    gap: 15px;
+}
+
+#projects-container div {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    border-radius: 15px;
+}
+
+#user-graph {
+    grid-column: 4/-1;
+    grid-row: 4/-1;
+}
+
+#user-progress {
+    grid-column: 8/-1;
+    grid-row: 1/4;
+}
+
+
 
 @keyframes card {
     to {

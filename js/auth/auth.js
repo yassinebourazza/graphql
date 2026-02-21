@@ -1,30 +1,42 @@
-
+import { RenderProfilePage } from "../view/profile_page.js";
+import { RenderSignInPage } from "../view/signin_page.js";
 export function SignIn() {
   
   const signinButton = document.getElementById('signin');
   const errorMsg = document.getElementById('error');
-    signinButton.addEventListener('click', async (e) => {
+
+  signinButton.addEventListener('click', async (e) => {
         e.preventDefault()
     const username = document.getElementById('username').value;
-  const password = document.getElementById('password').value;
+    const password = document.getElementById('password').value;
 
-  const response = await fetch('https://learn.zone01oujda.ma/api/auth/signin', {
-    method: 'POST',
-    headers: {
-      'Authorization': 'Basic ' + btoa(`${username}:${password}`),
-      'Content-Type': 'application/json'
+    const response = await fetch('https://learn.zone01oujda.ma/api/auth/signin', {
+      method: 'POST',
+      headers: {
+        'Authorization': 'Basic ' + btoa(`${username}:${password}`),
+        'Content-Type': 'application/json'
+      }
+    });
+
+    const data = await response.json();
+    if (response.ok) {
+      localStorage.setItem('token', data);
+      console.log(localStorage.getItem('token'));
+      console.log("s7i7", data);
+      RenderProfilePage()
+    } else {
+        errorMsg.textContent = data.error
+
     }
   });
 
-  if (response.ok) {
-    const token = await response.json();
-    localStorage.setItem('jwt', token); // حفظ التوكن
-    console.log(localStorage.getItem('token')); // حفظ التوكن
-    console.log("s7i7", token);
-  } else {
-    console.log("ghalat");
-    
-    }
-});
+}
 
+export function LogOut() {
+  let logoutButton = document.getElementById('logout')
+
+  logoutButton.addEventListener('click', ()=> {
+    localStorage.removeItem('token')
+    RenderSignInPage()
+  })
 }

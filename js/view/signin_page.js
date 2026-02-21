@@ -8,10 +8,11 @@ export function RenderSignInPage() {
         <h4>Enter your credentials to continue.</h4>
         <input id="username" class="input" type="text" name="username" placeholder="username of email">
         <input id="password" class="input" type="password" name="password" placeholder="password">
-        <p></p>
+        <p id='error'></p>
         <button id="signin" class="button-style">Sign in</button>
     </form>
     <script type="module" src="/js/auth.js"></script>`
+        
 
     SignIn()
 }
