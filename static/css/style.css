@@ -243,7 +243,7 @@ body {
 
 #user-graph-container {
     height: 93%;
-    padding: 40px 50px;
+    padding: 40px 55px;
 }
 
 .circle-hover {
@@ -283,7 +283,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: end;
-    transform: translateX(-60px);
+    transform: translateX(-65px);
     height: 480px;
 }
 

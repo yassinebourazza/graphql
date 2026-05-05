@@ -98,7 +98,7 @@ export async function RenderProfilePage() {
         div.className = 'glass-card'
         div.innerHTML = `
         <p>${project.object.name}</p>
-        <p>${Math.floor(project.amount / 1000)}KB</p>
+        <p>${XpFormat(project.amount)}</p>
         `
         userProjects.appendChild(div)
     }
@@ -127,12 +127,16 @@ export async function RenderProfilePage() {
     totalXp = data.data.totalXp.reduce((cur, next) => cur + next.amount, 0)
     console.log(totalXp);
 
-    userStatsTotalXp.textContent = `${Math.floor(totalXp / 1000)}KB`
+    userStatsTotalXp.textContent = XpFormat(totalXp)
     userStatsProjectDone.textContent = projects.length
     userStatsRatio.textContent = (data.data.user[0].auditRatio).toFixed(1)
     userStatsLevel.textContent = data.data.level[0].amount
 
     CreatGraphLine(projects, totalXp)
+}
+
+export function XpFormat(num) {
+    return num < 1000000 ? Math.floor(num / 1000) + " KB" : (num / 1000000).toFixed(2) + " MB"
 }
 
 

@@ -1,9 +1,10 @@
 // svg charts
-
+import {XpFormat} from './view/profile_page.js'
 const svgNS = "http://www.w3.org/2000/svg"
 
 export function CreatGraphLine(projects,totalXp) {
     let graph = document.getElementById('user-graph-container')
+
 
     const svg = document.createElementNS(svgNS, "svg");
     svg.setAttribute("width", "100%");
@@ -91,14 +92,14 @@ export function CreatGraphLine(projects,totalXp) {
     let valueParTime = document.createElement('div')
     valueParTime.id= 'graph-xp'
     valueParTime.innerHTML = `
-    <p>${Math.floor(totalXp/1000)}KB</p>
-    <p>${Math.floor(totalXp/7*6/1000)}KB</p>
-    <p>${Math.floor(totalXp/7*5/1000)}KB</p>
-    <p>${Math.floor(totalXp/7*4/1000)}KB</p>
-    <p>${Math.floor(totalXp/7*3/1000)}KB</p>
-    <p>${Math.floor(totalXp/7*2/1000)}KB</p>
-    <p>${Math.floor(totalXp/7*1/1000)}KB</p>
-    <p>${Math.floor(totalXp/7*0/1000)}KB</p>
+    <p>${XpFormat(totalXp)}</p>
+    <p>${XpFormat(totalXp/7*6)}</p>
+    <p>${XpFormat(totalXp/7*5)}</p>
+    <p>${XpFormat(totalXp/7*4)}</p>
+    <p>${XpFormat(totalXp/7*3)}</p>
+    <p>${XpFormat(totalXp/7*2)}</p>
+    <p>${XpFormat(totalXp/7*1)}</p>
+    <p>${XpFormat(0)}</p>
     `
     console.log(valueParTime);
     
@@ -136,17 +137,13 @@ export function CreatRects(skills) {
             let pop = document.getElementById('rect-pop')
             pop.style.opacity = 1
             rect.style.fill = '#afadad88'
-            
             pop.innerHTML = `${skill.type.split('_')[1]} : ${skill.amount}`
-            
         })
 
          rect.addEventListener('mouseleave', ()=> {
             let pop = document.getElementById('rect-pop')
             rect.style.fill = '#adadad41'
             pop.style.opacity = 0
-
-    
         })
 
     }
