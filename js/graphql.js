@@ -16,24 +16,39 @@ query {
   }
   
   
-  
-  progress(where: { eventId: { _eq: 41 } } ) {
-    eventId
-    groupId 
-    
-    createdAt
-    
-    path
-    isDone
-    group {
-      captainLogin
-      members {
-        user {
-          login
-        }
-      }
-    }
+   level : transaction (where: {type: {_eq:"level"}}
+    order_by: {createdAt: desc} 
+    limit: 1)
+  {
+    amount
   }
+
+  totalXp : transaction(where : {_and :[
+    {type : { _eq :"xp"}}
+  	{eventId:{ _eq: 41}}
+  ]}) {
+    amount  
+  }
+  
+    
+    projects: transaction (where: {_and: [
+    {type: {_eq: "xp"}},
+    {event:{object:{name:{_eq:"Module"}}}}
+    {object: {type: {_eq: "project"}}}
+  ]}
+    order_by: {createdAt: asc}
+    ) {
+    type
+      object {
+        name
+        type
+        
+      }
+    amount
+    createdAt
+
+  }
+ 
   
   
 

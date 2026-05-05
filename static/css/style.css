@@ -113,8 +113,6 @@ body {
 #logout {
     padding: 10px 0px;
     font-weight: 500;
-    width: 100px;
-    margin-left:  auto;
     color: var(--initial-gray);
     border-radius: 10px;
     transition: 0.5s;
@@ -126,7 +124,7 @@ body {
 }
 
 #profile-main {
-    display: grid;
+    display: flex;
     flex-direction: column;
     grid-template-columns: repeat(10, 1fr);
     grid-template-rows: repeat(10, 1fr);
@@ -134,6 +132,8 @@ body {
     height: 100vh;
     padding: 25px;
     gap: 20px;
+    overflow: scroll;
+    scrollbar-width: none;
 }
 
 .glass-profile {
@@ -228,8 +228,61 @@ body {
 }
 
 #user-graph {
+    display: flex;
+    flex-direction: column;
     grid-column: 4/-1;
     grid-row: 4/-1;
+    min-height: 620px;
+    gap: 10px;
+}
+
+#user-graph p {
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
+#user-graph-container {
+    height: 93%;
+    padding: 60px 80px;
+}
+
+.circle-hover {
+    transition: 0.3s;
+    r: 4;
+    fill: #757575
+}
+
+.circle-hover:hover {
+    fill: var(--initial-white);
+    r: 5;
+}
+
+#circle-pop {
+    position: absolute;
+    display: flex;
+    width: 60%;
+    justify-content: space-between;
+    justify-self: center;
+    padding: 10px;
+    border-radius: 10px;
+    transform: translateY(-70px);
+    opacity: 0;
+}
+#graph-xp {
+    position: absolute;
+    display: flex;
+    gap: 36px;
+    flex-direction: column;
+    align-items: end;
+    transform: translateX(-60px);
+}
+
+#graph-xp p {
+    font-size: 1rem;
+}
+
+#circle-pop p {
+    font-size: 1.2rem;
 }
 
 #user-progress {
