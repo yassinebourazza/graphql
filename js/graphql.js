@@ -49,6 +49,16 @@ query {
 
   }
  
+   skills: transaction(
+    where: {
+      type: {_ilike: "%skill%"}
+    }
+    order_by: {amount: desc}
+  ) {
+    type
+    amount
+    path
+  }
   
   
 

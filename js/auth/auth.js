@@ -13,7 +13,7 @@ export function SignIn() {
     const response = await fetch('https://learn.zone01oujda.ma/api/auth/signin', {
       method: 'POST',
       headers: {
-        'Authorization': 'Basic ' + btoa(`${username}:${password}`),
+        'Authorization': 'Bearer ' + btoa(`${username}:${password}`),
         'Content-Type': 'application/json'
       }
     });

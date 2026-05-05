@@ -105,3 +105,54 @@ export function CreatGraphLine(projects,totalXp) {
     graph.appendChild(valueParTime)
     graph.appendChild(svg);
 }
+
+export function CreatRects(skills) {
+    console.log("skills :" , skills);
+    const container = document.getElementById('user-progress-container')
+    const svg = document.createElementNS(svgNS, "svg");
+    svg.setAttribute("width", "100%");
+    svg.setAttribute("height", "100%");
+    svg.style.display = 'flex'
+    svg.style.justifyContent = 'space-between'
+
+    let posX = 0
+    for (let skill of Object.values(skills)) {
+        console.log(skill);
+        
+        const rect = document.createElementNS(svgNS, "rect")
+        rect.setAttribute("x", `${posX}%`);
+        rect.setAttribute("y", `${100-skill.amount}%`);
+        rect.setAttribute("rx", 3);
+        rect.setAttribute("width", 12);
+        rect.setAttribute("height", `${skill.amount}%`); 
+        rect.style.fill = '#adadad41'
+        rect.style.marginTop = 'auto'
+        rect.style.borderRadius = '5px'
+        svg.appendChild(rect)
+        posX+= 100/Object.keys(skills).length
+
+
+        rect.addEventListener('mouseenter', ()=> {
+            let pop = document.getElementById('rect-pop')
+            pop.style.opacity = 1
+            rect.style.fill = '#afadad88'
+            
+            pop.innerHTML = `${skill.type.split('_')[1]} : ${skill.amount}`
+            
+        })
+
+         rect.addEventListener('mouseleave', ()=> {
+            let pop = document.getElementById('rect-pop')
+            rect.style.fill = '#adadad41'
+            pop.style.opacity = 0
+
+    
+        })
+
+    }
+    console.log(skills);
+    console.log(Object.keys(skills).length);
+    
+    container.appendChild(svg);
+
+}
