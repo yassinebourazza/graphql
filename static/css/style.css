@@ -18,7 +18,7 @@
 body {
     display: flex;
     justify-content: center;
-    background-color: var(--initial-black) ;
+    background-color: var(--initial-purple) ;
     background-size: 100%;
     overflow: hidden;
 }
