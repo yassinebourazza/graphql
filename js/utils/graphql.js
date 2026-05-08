@@ -1,5 +1,3 @@
-// graph query
-
 export const queryUserData = `
     
 query {

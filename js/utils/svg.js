@@ -1,5 +1,4 @@
-// svg charts
-import {XpFormat} from './view/profile_page.js'
+import {XpFormat} from './xpformat.js'
 const svgNS = "http://www.w3.org/2000/svg"
 
 export function CreatGraphLine(projects,totalXp) {
@@ -31,6 +30,8 @@ export function CreatGraphLine(projects,totalXp) {
     let circles = []
 
     for (let project of projects) {
+        console.log("++++",project);
+        
         xpCounter += project.amount
         const circle = document.createElementNS(svgNS, "circle");
         const line = document.createElementNS(svgNS, "line")
@@ -40,7 +41,7 @@ export function CreatGraphLine(projects,totalXp) {
         
         let posX = ((100/timeDef) * def)-1
         let posY = 100 - ((100/totalXp) * xpCounter)
-        console.log(posX, posY);
+        console.log(posX, posY, totalXp , xpCounter);
         
         circle.setAttribute("cx", `${posX}%`);
         circle.setAttribute("cy", `${posY}%`);

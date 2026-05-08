@@ -211,7 +211,7 @@ body {
     font-size: 1.5rem;
 }
 
-#user-projects #projects-container {
+#projects-container {
     height: 92%;
     display: flex;
     flex-direction: column;
@@ -310,6 +310,12 @@ body {
     padding: 5px;
 }
 
+.para-error {
+    width: 100%;
+    text-align: center;
+    font-size: 1rem !important;
+}
+
 
 
 @keyframes card {
@@ -352,18 +358,46 @@ body {
 
 @media (max-width: 1355px) {
     #profile-main {
-        display: flex;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
     }
-     #user-graph {
+
+    #user-stats {
+        grid-column: 1;
+        grid-row: 2;
+    }
+    #user-progress {
+        grid-column: 2;
+        grid-row: 2;
+    }
+    #user-infos {
+        grid-column: 1/-1;
+        grid-row: 1;
+    }
+    #user-graph {
         min-height: 460px;
+        grid-row: 3;
+        grid-column: 1/-1;
+    }
+    #user-projects {
+        grid-row: 4;
+        grid-column: 1/-1;
     }
     #graph-xp {
         height: 70%;
     }
+
+    #projects-container {
+        height: auto;
+        overflow: auto;
+    }
+
 }
 
-@media (max-width: 900px) {
- 
+@media (max-width: 800px) {
+    #profile-main {
+        display: flex;
+    }
 
     #user-graph {
         min-height: 400px;
@@ -378,5 +412,12 @@ body {
 @media (max-width: 600px) {
        #user-infos {
         flex-direction: column;
+    }
+}
+
+
+@media (max-height: 800px) {
+    #profile-main {
+        display: flex;
     }
 }
