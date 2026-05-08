@@ -1,4 +1,4 @@
-import { RenderSignInPage } from "../render/signin_render"
+import { RenderSignInPage } from "../render/signin_render.js"
 
 export function LogOut() {
   let logoutButton = document.getElementById('logout')

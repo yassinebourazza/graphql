@@ -68,7 +68,7 @@ export function UserSkillsRendring(skills) {
 export function UserSectionsRendring(data,userStatsTotalXp,userStatsProjectDone,userStatsRatio,userStatsLevel,totalXp,projects) {
 
     userStatsTotalXp.textContent = XpFormat(totalXp)
-    userStatsProjectDone.textContent = projects ? projects.length : "0"
+    userStatsProjectDone.textContent = projects ? projects.filter(project => project.object.type === "project").length : "0"
     userStatsRatio.textContent = data.data.user[0]?.auditRatio ? data.data.user[0]?.auditRatio?.toFixed(1) : "0" 
     userStatsLevel.textContent = data.data.level[0]?.amount ? data.data.level[0]?.amount : "0" 
 

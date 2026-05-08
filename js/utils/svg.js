@@ -20,7 +20,6 @@ export function CreatGraphLine(projects,totalXp) {
 
     let dateEnd = new Date(projects[projects.length-1].createdAt)
     let timeDef = dateEnd.getTime() - dateStart.getTime()
-    console.log((dateEnd.getTime()-dateStart.getTime())/1000/60/60/24);
 
     let xpCounter = 0
     let countX= 0
@@ -30,7 +29,6 @@ export function CreatGraphLine(projects,totalXp) {
     let circles = []
 
     for (let project of projects) {
-        console.log("++++",project);
         
         xpCounter += project.amount
         const circle = document.createElementNS(svgNS, "circle");
@@ -41,7 +39,6 @@ export function CreatGraphLine(projects,totalXp) {
         
         let posX = ((100/timeDef) * def)-1
         let posY = 100 - ((100/totalXp) * xpCounter)
-        console.log(posX, posY, totalXp , xpCounter);
         
         circle.setAttribute("cx", `${posX}%`);
         circle.setAttribute("cy", `${posY}%`);
@@ -102,14 +99,12 @@ export function CreatGraphLine(projects,totalXp) {
     <p>${XpFormat(totalXp/7*1)}</p>
     <p>${XpFormat(0)}</p>
     `
-    console.log(valueParTime);
     
     graph.appendChild(valueParTime)
     graph.appendChild(svg);
 }
 
 export function CreatRects(skills) {
-    console.log("skills :" , skills);
     const container = document.getElementById('user-progress-container')
     const svg = document.createElementNS(svgNS, "svg");
     svg.setAttribute("width", "100%");
@@ -119,7 +114,6 @@ export function CreatRects(skills) {
 
     let posX = 0
     for (let skill of Object.values(skills)) {
-        console.log(skill);
         
         const rect = document.createElementNS(svgNS, "rect")
         rect.setAttribute("x", `${posX}%`);
@@ -148,8 +142,6 @@ export function CreatRects(skills) {
         })
 
     }
-    console.log(skills);
-    console.log(Object.keys(skills).length);
     
     container.appendChild(svg);
 
