@@ -68,6 +68,11 @@ export async function RenderProfilePage() {
     if (data.errors) {
         return
     }
+
+
+    console.log(data);
+    
+
     let userInfosText = document.getElementById('user-infos-text').children
     let userProjects = document.getElementById('projects-container')
     let userStatsTotalXp = document.getElementById('user-stats-totalxp')
@@ -85,12 +90,12 @@ export async function RenderProfilePage() {
 
 
     console.log(user.firstName);
-    avatar.setAttribute('src', user.avatarUrl);
-    userInfosText[1].textContent = `Username : ${data.data.user[0].login}`
-    userInfosText[2].textContent = `Full Name : ${user.firstName} ${user.lastName}`
-    userInfosText[3].textContent = `Email : ${user.email}`
-    userInfosText[4].textContent = `Phone : ${user.tel}`
-    userInfosText[5].textContent = `City : ${user.addressCity}`
+    if (user.avatarUrl) avatar.setAttribute('src', user.avatarUrl);
+    userInfosText[1].textContent = `Username : ${data.data.user[0].login ? data.data.user[0].login : "Not provided"}`
+    userInfosText[2].textContent = `Full Name : ${user.firstName && user.lastName ? user.firstName + " " + user.lastName : "Not provided" }`
+    userInfosText[3].textContent = `Email : ${user.email ? user.email : "Not provided"}`
+    userInfosText[4].textContent = `Phone : ${user.tel ? user.tel : "Not provided"}`
+    userInfosText[5].textContent = `City : ${user.addressCity ? user.addressCity : "Not provided"}`
 
     projects.reverse()
     for (let project of projects) {

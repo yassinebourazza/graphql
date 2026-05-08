@@ -13,7 +13,7 @@ export function SignIn() {
     const response = await fetch('https://learn.zone01oujda.ma/api/auth/signin', {
       method: 'POST',
       headers: {
-        'Authorization': 'Bearer ' + btoa(`${username}:${password}`),
+        'Authorization': 'Bearer ' + bytesToBase64(`${username}:${password}`),
         'Content-Type': 'application/json'
       }
     });
@@ -29,6 +29,21 @@ export function SignIn() {
 
     }
   });
+
+}
+
+function bytesToBase64(bytes) {
+
+  bytes = new TextEncoder().encode(bytes)
+
+  const binString = Array.from(bytes, (byte) =>
+    String.fromCodePoint(byte),
+  ).join("");
+
+  console.log('btoa :', binString);
+  
+
+  return btoa(binString);
 
 }
 
