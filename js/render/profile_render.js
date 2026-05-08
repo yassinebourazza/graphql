@@ -10,6 +10,7 @@ export async function RenderProfilePage() {
 
     let data = await GetUserData()
     if (data.errors) {
+        LogOut()
         return
     }
     
@@ -20,6 +21,7 @@ export async function RenderProfilePage() {
     let userStatsRatio = document.getElementById('user-stats-ratio')
     let userStatsLevel = document.getElementById('user-stats-level')
     let avatar = document.getElementById('user-avatar')
+    
     let user = data.data.user[0].attrs
     let projects = data.data.projects
     let skills = data.data.skills
