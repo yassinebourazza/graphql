@@ -25,7 +25,6 @@ A modern profile dashboard built using GraphQL, JWT Authentication, SVG statisti
 - [Project Structure](#project-structure)
 - [Authentication](#authentication)
 - [Installation](#installation)
-- [Running The Project](#running-the-project)
 - [Hosting](#hosting)
 - [Screenshots](#screenshots)
 - [Author](#author)

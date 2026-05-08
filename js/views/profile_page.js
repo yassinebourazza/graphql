@@ -6,11 +6,11 @@ export function ProfilePage() {
                 <img id="user-avatar" src="/static/assets/user.svg" >
                     <div id='user-infos-text'>
                         <button id="logout" class="glass-card">Log out</button>
-                        <p>Username :</p>
-                        <p>Full Name :</p>
-                        <p>Email :</p>
-                        <p>Phone :</p>
-                        <p>City :</p>
+                        <p>Username : Not provided</p>
+                        <p>Full Name : Not provided</p>
+                        <p>Email : Not provided</p>
+                        <p>Phone : Not provided</p>
+                        <p>City : Not provided</p>
                     </div>
 
             </div>
