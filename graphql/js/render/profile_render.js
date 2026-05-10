@@ -11,7 +11,7 @@ export async function RenderProfilePage() {
         localStorage.removeItem('token')
         RenderSignInPage()
         return 
-    }
+    }    
     
     document.body.innerHTML = ProfilePage()
     LogOut()

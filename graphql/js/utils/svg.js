@@ -16,7 +16,7 @@ export function CreatGraphLine(projects,totalXp) {
     projects.reverse()
 
     let dateStart = new Date(projects[0].createdAt)
-    dateStart = new Date(dateStart.getTime() - 7 * 24 * 60 * 60 * 1000); // طرح 30 يوم
+    dateStart = new Date(dateStart.getTime() - 7 * 24 * 60 * 60 * 1000);
 
     let dateEnd = new Date(projects[projects.length-1].createdAt)
     let timeDef = dateEnd.getTime() - dateStart.getTime()

@@ -8,8 +8,6 @@ query {
     auditRatio
     campus
     createdAt
-    totalDown
-    totalUp
     updatedAt
   }
   
