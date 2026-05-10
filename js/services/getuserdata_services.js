@@ -10,7 +10,9 @@ export async function GetUserData() {
 
         body: JSON.stringify({ query: queryUserData }),
     });
-
+    
     const data = await response.json();
+    console.log(data);
+    
     return data
 }

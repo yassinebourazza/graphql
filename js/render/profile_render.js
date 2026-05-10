@@ -2,17 +2,19 @@ import { LogOut } from "../services/logout_services.js"
 import { ProfilePage } from "../views/profile_page.js"
 import { GetUserData } from "../services/getuserdata_services.js"
 import { UserInfoRendring, UserProjectsRendring, UserSectionsRendring, UserSkillsRendring } from "./userdata_render.js"
+import { RenderSignInPage } from "./signin_render.js";
 
 export async function RenderProfilePage() {
-    document.body.innerHTML = ProfilePage()
-
-    LogOut()
-
+    
     let data = await GetUserData()
     if (data.errors) {
-        LogOut()
-        return
-    }
+        localStorage.removeItem('token')
+        RenderSignInPage()
+        return 
+    }    
+    
+    document.body.innerHTML = ProfilePage()
+    LogOut()
     
     let userInfosText = document.getElementById('user-infos-text').children
     let userProjects = document.getElementById('projects-container')

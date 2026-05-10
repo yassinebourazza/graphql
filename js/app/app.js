@@ -4,8 +4,8 @@ import { SignIn } from "../services/signin_services.js"
 
 document.addEventListener('DOMContentLoaded', ()=> {
     if (!localStorage.getItem('token')) {        
-        RenderSignInPage()
+        RenderSignInPage()        
     } else {
-        SignIn()
+        RenderProfilePage()
     }
 })
