@@ -17,7 +17,7 @@ export function ProfilePage() {
             <div id="user-stats" class="glass-profile">
                 <div class="glass-card">
                     <p>Total Xp</p>
-                    <p id='user-stats-totalxp'>0KB</p>
+                    <p id='user-stats-totalxp'>0 KB</p>
                 </div>
                 <div class="glass-card">
                     <p>Level</p>

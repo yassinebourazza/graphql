@@ -12,10 +12,13 @@ export function UserInfoRendring(data,user,avatar,userInfosText) {
 }
 
 export function UserProjectsRendring(projects, userProjects, totalXp) {
+
+        let moduleProjects = projects.filter(project => project.object.type === "project").reverse()
+
         if (projects.length > 0) {
     
             projects.reverse()
-            for (let project of projects) {
+            for (let project of moduleProjects) {
                 let div = document.createElement('div')
                 div.className = 'glass-card'
                 div.innerHTML = `

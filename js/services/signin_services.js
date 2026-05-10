@@ -7,6 +7,10 @@ export function SignIn() {
   const signinButton = document.getElementById('signin');
   const errorMsg = document.getElementById('error');
 
+  if (!signinButton) {
+    return RenderProfilePage()
+  }
+
   signinButton.addEventListener('click', async (e) => {
     e.preventDefault()
     const username = document.getElementById('username').value;
@@ -25,6 +29,9 @@ export function SignIn() {
       localStorage.setItem('token', data);
       RenderProfilePage()
     } else {
+      if (localStorage.getItem('token')) {
+        RenderSignInPage()
+      }
       errorMsg.textContent = data.error
     }
   });
